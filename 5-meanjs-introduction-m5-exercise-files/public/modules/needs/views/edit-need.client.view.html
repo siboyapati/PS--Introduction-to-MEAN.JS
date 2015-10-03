@@ -1,0 +1,73 @@
+<section data-ng-controller="NeedsController" data-ng-init="findOne()">
+    !-- *****************************************************************************************************************
+    BLUE WRAP
+    ***************************************************************************************************************** -->
+    <div id="blue">
+        <div class="container">
+            <div class="row">
+                <h3>Edit Volunteer Need</h3>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /blue -->
+
+    <section class="container">
+        <form name="needForm" class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="title">Title</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="need.title" id="title" class="form-control" placeholder="Title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="description">Description</label>
+                    <div class="controls">
+                        <textarea name="description" data-ng-model="need.description" id="description" class="form-control" cols="30" rows="5" placeholder="Volunteer Need Description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="organization">Organization</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="need.organization" id="organization" class="form-control" placeholder="Organization" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="location">Location</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="need.location" id="location" class="form-control" placeholder="Location" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <label class="control-label" for="startDate">Start Date</label>
+                        <div class="controls">
+                            <datepicker ng-model="need.startDate" id="startDate" show-weeks="false" class="well well-sm"></datepicker>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label" for="endDate">End Date</label>
+                        <div class="controls">
+                            <datepicker ng-model="need.endDate" id="endDate" show-weeks="false" class="well well-sm"></datepicker>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="numberNeeded">Number of Volunteers Needed</label>
+                    <div class="controls">
+                        <input type="number" data-ng-model="need.numberNeeded" id="numberNeeded" name="numberNeeded"
+                               class="form-control" required min="1" value="1">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+</section>

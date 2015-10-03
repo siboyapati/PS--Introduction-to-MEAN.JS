@@ -1,0 +1,71 @@
+<section data-ng-controller="NeedsController" data-ng-init="findOne()">
+<!-- *****************************************************************************************************************
+     BLUE WRAP
+     ***************************************************************************************************************** -->
+    <div id="blue">
+        <div class="container">
+            <div class="row">
+                <h3>{{need.organization}}</h3>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /blue -->
+    
+    <section class="container">
+
+
+	<div class="container">
+	 	<div class="row">	 		
+	 		<div class="col-lg-8">
+		 		<h4>{{need.title}}</h4>
+		 		<div class="hline"></div>
+		 			<p>
+		 				{{need.description}}
+		 			</p>		 			
+		 			<p>
+						This volunteer opportunity needs {{need.numberNeeded}} {{need.numberNeeded > 1 ? " volunteers" : " volunteer"}}.		
+					</p>
+		 			<small>
+						<em class="text-muted">
+							Posted on
+							<span data-ng-bind="need.createdOn | date:'mediumDate'"></span>							
+						</em>
+					</small>
+				<div>
+					<div class="pull-left" >
+						<a class="btn btn-primary" href="/#!/needs/{{need._id}}/edit">
+							<i class="glyphicon glyphicon-edit"></i>
+						</a>
+						<a class="btn btn-primary" data-ng-click="remove();">
+							<i class="glyphicon glyphicon-trash"></i>
+						</a>
+					</div>
+				</div>
+	 		</div>
+	 		<div class="col-lg-4">
+	 			<h4>Sign up to volunteer for this!</h4>
+	 			<div class="hline"></div>
+	 			<p>Thank you for signing up for the volunteer opportunity "{{need.title}}".  {{need.organization}} really appreciates your help!</p>
+	 			<form role="form" data-ng-submit="signUp(need)">
+				  <div class="form-group">
+				    <label for="volunteerName">Your Name</label>
+				    <input type="text" class="form-control" id="volunteerName" data-ng-model="signUpData.name">
+				  </div>
+				  <div class="form-group">
+				    <label for="volunteerEmail">Email address</label>
+				    <input type="email" class="form-control" id="volunteerEmail" data-ng-model="signUpData.email">
+				  </div>
+				  <div class="form-group">
+				  	<label for="volunteerMessage">Message</label>
+				  	<textarea class="form-control" id="volunteerMessage" rows="3" data-ng-model="signUpData.message"></textarea>
+				  </div>
+					<input type="hidden" data-ng-model="signUpData.need_id" value="{{need._id}}"/>
+					<input type="hidden" data-ng-model="signUpData.needTitle" value="{{need.title}}"/>
+				  <button type="submit" class="btn btn-theme">Submit</button>
+				</form>
+			</div><! --/col-lg-4 -->
+
+	 	</div><! --/row -->
+	 </div><! --/container -->
+
+	 
+</section>

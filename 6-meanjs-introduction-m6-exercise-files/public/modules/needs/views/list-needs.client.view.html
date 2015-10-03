@@ -1,0 +1,69 @@
+<section data-ng-controller="NeedsController" data-ng-init="find()">
+    <!-- *****************************************************************************************************************
+     BLUE WRAP
+     ***************************************************************************************************************** -->
+    <div id="blue">
+        <div class="container">
+            <div class="row">
+                <h3>Volunteer Needs</h3>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /blue -->
+    
+    <section class="container">
+        <div data-ng-repeat="need in needs">
+            <a data-ng-href="#!/needs/{{need._id}}"><h3 class="ctitle">{{need.title}}</h3></a>
+            <p><csmall>{{need.createdOn}}</csmall></p>
+            <p>{{need.description}}</p>
+            <p>This volunteer opportunity needs {{need.numberNeeded}} {{need.numberNeeded > 1 ? " volunteers" : " volunteer"}}.</p>
+            <p>
+                <a data-ng-href="#!/needs/{{need._id}}">[Volunteer for this]</a>
+            </p>
+            <div class="hline"></div>
+            
+            <div class="spacing"></div>
+        </div>
+
+
+        <div class="alert alert-warning text-center" data-ng-hide="!needs.$resolved || needs.length">
+            No Volunteer Needs yet, why don't you <a href="/#!/needs/create">create one</a>?
+        </div>  
+
+<!-- *****************************************************************************************************************
+     FOOTER
+     ***************************************************************************************************************** -->
+     <div id="footerwrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4>About</h4>
+                    <div class="hline-w"></div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Social Links</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-tumblr"></i></a>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Our Bunker</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        Some Ave, 987,<br/>
+                        23890, New York,<br/>
+                        United States.<br/>
+                    </p>
+                </div>
+            
+            </div><! --/row -->
+        </div><! --/container -->
+     </div><! --/footerwrap -->
+    </section>
+    
+</section>
